@@ -45,7 +45,7 @@ __threads__: how many threads to start the benchmark.For asynchronous program, m
 __concurrency__:  how many actors on asynchronous benchmark. For asynchronous program, the number of actors decides the concurrency, which is not decided by the threads.  
 __iterations__:   how many iterations for each actors. *This is not the total iterations. TotalIterations = concurrency***iterations*  
 __rounds__: how many benchmark rounds  
-__warmupConcurrency__: how many actors for warmup.
+__warmupConcurrency__: how many actors for warmup.  
 __warmupIterations__: how many iterations for warmup.  
 __warmupRounds__:  how many rounds for warmup.
  
