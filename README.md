@@ -32,6 +32,7 @@ __blocker__: need to use blocker object to control the test workflow of asynchro
              .warmupConcurrency(10000)
              .warmupIterations(1000)
              .warmupRounds(1)
+             .reportIntervalSeconds(3)
              .benchmarkTask((index, runnerContext) -> {
                   Observable.just(index)
                             .subscribe(integer -> {
@@ -43,9 +44,10 @@ __blocker__: need to use blocker object to control the test workflow of asynchro
 
 __threads__: how many threads to start the benchmark.For asynchronous program, maybe need more threads to start iterations  
 __concurrency__:  how many actors on asynchronous benchmark. For asynchronous program, the number of actors decides the concurrency, which is not decided by the threads.  
-__iterations__:   how many iterations for each actors. *This is not the total iterations. TotalIterations = concurrency***iterations*  
+__iterations__:   how many iterations for each actors. *This is not the total iterations. TotalIterations = concurrency***iterations*  *Don't make the totalIteration too large.*
 __rounds__: how many benchmark rounds  
 __warmupConcurrency__: how many actors for warmup.  
 __warmupIterations__: how many iterations for warmup.  
-__warmupRounds__:  how many rounds for warmup.
+__warmupRounds__:  how many rounds for warmup.  
+__reportIntervalSeconds__: benchmark report interval. The default value is 2 seconds. In some case, the value should larger. 
  

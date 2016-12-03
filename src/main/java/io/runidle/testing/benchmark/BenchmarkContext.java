@@ -33,7 +33,7 @@ public class BenchmarkContext {
     int warmupIterations;
     int warmupRounds;
     int warmupConcurrency;
-    int reportInterval = 2;
+    int reportIntervalSeconds = 2;
     boolean defailMetrics;
     int timeout = 30000;
     BenchmarkRunner.IBenchmarkTask benchmarkTask;
@@ -104,7 +104,7 @@ public class BenchmarkContext {
 
         for (int i = 0; i < rounds; i++) {
             final BenchmarkMetrics metricTimer = new BenchmarkMetrics(name + "_Round_" + i, concurrency,
-                    toIndex, this.defailMetrics, this.reportInterval);
+                    toIndex, this.defailMetrics, this.reportIntervalSeconds);
             metricTimer.start();
             testRunners.forEach(iTestRunner -> {
                 iTestRunner.reset(metricTimer);

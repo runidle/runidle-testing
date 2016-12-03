@@ -36,6 +36,7 @@ public class RxjavaBenchmark extends BaseUnitSpec {
                 .warmupConcurrency(10000)
                 .warmupIterations(1000)
                 .warmupRounds(1)
+                .reportIntervalSeconds(3)
                 .benchmarkTask((index, runnerContext) -> {
                     Observable.just(index)
                             .subscribe(integer -> {
