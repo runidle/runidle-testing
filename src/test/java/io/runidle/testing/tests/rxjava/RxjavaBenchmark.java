@@ -28,7 +28,14 @@ public class RxjavaBenchmark extends BaseUnitSpec {
 //                Observable.from(new Fiber<>((SuspendableCallable<Object>) () -> index).start())
 //        );
 
-        Benchmark.benchmark().threads(1).concurrency(20000).iterations(500).rounds(10)
+        Benchmark.benchmark()
+                .threads(1)
+                .concurrency(20000)
+                .iterations(500)
+                .rounds(10)
+                .warmupConcurrency(10000)
+                .warmupIterations(1000)
+                .warmupRounds(1)
                 .benchmarkTask((index, runnerContext) -> {
                     Observable.just(index)
                             .subscribe(integer -> {
@@ -36,8 +43,7 @@ public class RxjavaBenchmark extends BaseUnitSpec {
                             }, throwable -> {
                                 runnerContext.done(index);
                             });
-                })
-                .start();
+                }).start();
     }
 
     @Test
