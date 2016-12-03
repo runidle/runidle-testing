@@ -1,0 +1,14 @@
+name: testName
+values: a,b,c
+commons:
+  - name: test1
+    port: 1
+  - name: test2
+    port: 2
+commonMap:
+  test1:
+    name: test1
+    port: 1
+  test2:
+    name: test2
+    port: 2
